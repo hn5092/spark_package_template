@@ -22,7 +22,8 @@ public class Spring4sparkApplication {
 
 		return new SparkProcess(SparkSession
 				.builder()
-				.master("local")
+				.enableHiveSupport()
+//				.master("local")
 				.appName("spring")
 				.getOrCreate()) ;
 	}

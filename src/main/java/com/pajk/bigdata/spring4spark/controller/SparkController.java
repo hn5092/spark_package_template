@@ -19,4 +19,9 @@ public class SparkController {
     sparkProcess.runPi();
     return "ok!";
   }
+  @RequestMapping("/sparkSql")
+  public String sparkCount() {
+    sparkProcess.runSql();
+    return "ok!";
+  }
 }

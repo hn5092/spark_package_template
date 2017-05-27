@@ -101,4 +101,9 @@ class SparkProcess(spark: SparkSession) {
 
 
   }
+
+  def runSql():Unit={
+    spark.sql("use database")
+    spark.sql("select * from tablename").show(10)
+  }
 }
