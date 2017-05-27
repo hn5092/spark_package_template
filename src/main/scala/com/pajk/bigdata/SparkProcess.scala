@@ -6,7 +6,7 @@ class SparkProcess(spark: SparkSession) {
 
 
   def runPi(): Unit ={
-    val df = spark.read.json("/xym/work_space/pajk_workspace/spring4spark/src/main/resources/people.json")
+    val df = spark.read.json("src/main/resources/people.json")
     // Displays the content of the DataFrame to stdout
     df.show()
     // +----+-------+
