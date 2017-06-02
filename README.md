@@ -8,5 +8,7 @@ spring4spark
 
 
 build:gradle build -x test   or  ./gradlew
+
 run local:java -jar target/xx.jar
+
 run yarn cluster: ./submit-stask.sh
