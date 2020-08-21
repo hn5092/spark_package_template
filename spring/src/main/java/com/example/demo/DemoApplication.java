@@ -10,9 +10,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class DemoApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("org.springframework.boot.logging.LoggingSystem", "none");
 		SpringApplication.run(DemoApplication.class, args);
+		Thread.sleep(Long.MAX_VALUE);
 	}
 
 	@Bean
