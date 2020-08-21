@@ -1,6 +1,6 @@
-package com.example;
+package com.example.demo;
 
-import com.example.SparkProcess;
+import example.SparkProcess;
 import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
 import org.springframework.boot.SpringApplication;
@@ -8,19 +8,18 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-public class Spring4sparkApplication {
+public class DemoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Spring4sparkApplication.class, args);
+		System.setProperty("org.springframework.boot.logging.LoggingSystem", "none");
+		SpringApplication.run(DemoApplication.class, args);
 	}
-
-
 
 	@Bean
 	SparkProcess sparkProcess (){
 		SparkConf sparkConf = new SparkConf();
 		if (!sparkConf.contains("spark.master")) {
-			 sparkConf.setMaster("local[4]");
+			sparkConf.setMaster("local[4]");
 		}
 		return new SparkProcess(SparkSession
 				.builder()
