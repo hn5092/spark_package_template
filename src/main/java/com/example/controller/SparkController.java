@@ -1,7 +1,6 @@
-package com.pajk.bigdata.spring4spark.controller;
+package com.example.controller;
 
-import com.pajk.bigdata.SparkProcess;
-import org.apache.spark.sql.SparkSession;
+import com.example.SparkProcess;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,14 +13,8 @@ public class SparkController {
   @Autowired
   SparkProcess sparkProcess;
 
-  @RequestMapping("/spark")
-  public String spark() {
-    sparkProcess.runPi();
-    return "ok!";
-  }
-  @RequestMapping("/sparkSql")
-  public String sparkCount() {
-    sparkProcess.runSql();
-    return "ok!";
+  @RequestMapping("/sql")
+  public String sql(String sql) {
+    return  sparkProcess.runSql(sql);
   }
 }

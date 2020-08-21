@@ -1,4 +1,4 @@
-package com.pajk.bigdata.spring4spark.service;
+package com.example.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

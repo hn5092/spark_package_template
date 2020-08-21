@@ -1,6 +1,7 @@
-package com.pajk.bigdata.spring4spark;
+package com.example;
 
-import com.pajk.bigdata.SparkProcess;
+import com.example.SparkProcess;
+import org.apache.spark.SparkConf;
 import org.apache.spark.sql.SparkSession;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,14 +18,15 @@ public class Spring4sparkApplication {
 
 	@Bean
 	SparkProcess sparkProcess (){
-
-
-
+		SparkConf sparkConf = new SparkConf();
+		if (!sparkConf.contains("spark.master")) {
+			 sparkConf.setMaster("local[4]");
+		}
 		return new SparkProcess(SparkSession
 				.builder()
 				.enableHiveSupport()
-//				.master("local")
 				.appName("spring")
+				.config(sparkConf)
 				.getOrCreate()) ;
 	}
 }
