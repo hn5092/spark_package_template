@@ -46,6 +46,14 @@
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>3.2.4</version>
 				<configuration>
+					<filters>
+						<filter>
+							<excludes>
+								<exclude>org/junit/experimental/**</exclude>
+								<exclude>org/junit/runners/**</exclude>
+							</excludes>
+						</filter>
+					</filters>
 				</configuration>
 				<executions>
 					<execution>
@@ -55,6 +63,12 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
+							<relocations>
+							<relocation>
+								<pattern>com.example</pattern>
+								<shadedPattern>my.com.example</shadedPattern>
+							</relocation>
+							</relocations>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<manifestEntries>
@@ -70,6 +84,14 @@
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>scala-maven-plugin</artifactId>
 				<version>3.2.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
